@@ -11,3 +11,7 @@ $routes->get('/auth/hr/logout', 'Auth\HRAuth::logout');
 
 $routes->get('/', 'Home::index');
 $routes->get('/hr', 'HR::index',['filter' => 'loginCheck']);
+
+$routes->post('/hr/add_applicant', 'HR::addApplicant',['filter' => 'loginCheck']);
+$routes->delete('/hr/del_applicant/(:segment)', 'HR::delApplicant/$1',['filter' => 'loginCheck']);
+$routes->get('/hr/applicant/(:segment)', 'HR::applicant/$1',['filter' => 'loginCheck']);

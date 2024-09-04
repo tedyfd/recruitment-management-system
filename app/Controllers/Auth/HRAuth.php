@@ -9,14 +9,12 @@ class HRAuth extends BaseController
 {
     public function login()
     {
-        
         helper(['form', 'url']);
         $data = [
             'validation' => \Config\Services::validation(),
             'session' => \Config\Services::session()
         ];
         return view('auth/HRLogin', $data);
-
     }
     public function loginProcess()
     {
@@ -38,18 +36,18 @@ class HRAuth extends BaseController
                 if(password_verify($password, $data['password'])){
                     $newdata = [
                         'username'  => $data['username'],
-                        'logged_in' => TRUE
+                        'hr_logged_in' => TRUE
                     ];
                     
                     $this->session->set($newdata);
                     return redirect()->to('/hr');
                 }else{
-                    $this->session->setFlashdata('message', 'Password Wrong!');
-                    return redirect()->to('/login');
+                    $this->session->setFlashdata('message', 'Password is wrong!');
+                    return redirect()->to('/auth/hr/login');
                 }
             } else {
-                $this->session->setFlashdata('message', 'username Wrong!');
-                return redirect()->to('/login');
+                $this->session->setFlashdata('message', 'Username not found!');
+                return redirect()->to('/auth/hr/login');
             }
         }
     }
