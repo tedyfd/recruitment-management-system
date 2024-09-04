@@ -37,7 +37,7 @@ class Form extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '20',
             ],
-            'adress' => [
+            'address' => [
                 'type' => 'TEXT',
             ],
         ]);
