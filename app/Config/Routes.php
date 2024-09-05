@@ -18,6 +18,16 @@ $routes->post('/hr/add_applicant', 'HR::addApplicant',['filter' => 'loginCheckHR
 $routes->delete('/hr/del_applicant/(:segment)', 'HR::delApplicant/$1',['filter' => 'loginCheckHR']);
 $routes->get('/hr/applicant/(:segment)', 'HR::applicant/$1',['filter' => 'loginCheckHR']);
 
+$routes->get('/hr/job_setting', 'HR::jobSetting',['filter' => 'loginCheckHR']);
+$routes->post('/hr/add_job', 'HR::addJob',['filter' => 'loginCheckHR']);
+$routes->post('/hr/del_job', 'HR::delJob',['filter' => 'loginCheckHR']);
+$routes->post('/hr/add_job_category', 'HR::addJobCategory',['filter' => 'loginCheckHR']);
+$routes->post('/hr/del_job_category', 'HR::delJobCategory',['filter' => 'loginCheckHR']);
+$routes->post('/hr/add_job_position', 'HR::addJobPosition',['filter' => 'loginCheckHR']);
+$routes->post('/hr/del_job_position', 'HR::delJobPosition',['filter' => 'loginCheckHR']);
+$routes->post('/hr/add_job_organization', 'HR::addJobOrganization',['filter' => 'loginCheckHR']);
+$routes->post('/hr/del_job_Organization', 'HR::delJobOrganization',['filter' => 'loginCheckHR']);
+
 $routes->get('/applicant', 'Applicant::index',['filter' => 'loginCheckApplicant']);
 $routes->get('/applicant/form', 'Applicant::form',['filter' => 'loginCheckApplicant']);
 $routes->post('/applicant/add_form', 'Applicant::addForm',['filter' => 'loginCheckApplicant']);

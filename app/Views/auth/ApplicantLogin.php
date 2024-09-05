@@ -43,7 +43,7 @@
                   <?php endif ?>
                   <a href="<?= base_url() ?>"><span>Home</span></a>
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Username</label>
+                  <label class="form-label">Username</label>
                     <input type="text" class="form-control" name="username">
                   </div>
                   <div id="validationServerUsernameFeedback" class="invalid-feedback">

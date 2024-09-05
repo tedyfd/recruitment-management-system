@@ -20,7 +20,7 @@ class JobFK extends Migration
                 'constraint'     => 5,
                 'unsigned'       => true,
             ],
-            'organization_id' => [
+            'job_organization_id' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
