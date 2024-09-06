@@ -64,6 +64,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div class="input-group input-group-outline mb-3 dark-version">
+          <select class="form-select" id="job" name="job">
+            <option selected>Job</option>
+            <?php foreach($job as $rows): ?>
+              <option value="<?= $rows['id'] ?>"><?= $rows['name'] . ' - ' . $rows['position_name'] . ' - ' . $rows['category_name']. ' - ' . $rows['organization_name']?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
         <div class="input-group input-group-outline my-3">
           <label class="form-label">name</label>
           <input type="text" class="form-control" id="name" name="name">
@@ -86,10 +94,11 @@
 
 <script>
 function saveApplicant() {
+    const jobId = $("#job").val();
     const username = $("#username").val();
     const password = $("#password").val();
     const name = $("#name").val();
-    if (username == "" || password == "" || name == "") {
+    if (jobId == "" || username == "" || password == "" || name == "") {
         alert("Please enter all required details.");
         return false;
     }
@@ -98,6 +107,7 @@ function saveApplicant() {
         type: "POST",
         dataType: 'json',
         data: {
+            jobId: jobId,
             name: name,
             username: username,
             password: password,

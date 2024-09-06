@@ -29,7 +29,7 @@ class JobFK extends Migration
         $this->forge->addForeignKey('job_category_id', 'job_category', 'id');
         $this->forge->addForeignKey('job_position_id', 'job_position', 'id');
         $this->forge->addForeignKey('organization_id', 'organization', 'id');
-        // $this->forge->addColumn('job', $fields);
+        $this->forge->addColumn('job', $fields);
     }
 
     public function down()

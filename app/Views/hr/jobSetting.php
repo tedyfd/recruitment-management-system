@@ -20,7 +20,9 @@
             <thead>
               <tr>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">name</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">description</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">category</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">position</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">organization</th>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7"></th>
               </tr>
             </thead>
@@ -31,7 +33,13 @@
                   <span class="text-xs font-weight-bold"> <?= $rows['name'] ?> </span>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> <?= $rows['id'] ?> </span>
+                  <span class="text-xs font-weight-bold"> <?= $rows['category_name'] ?> </span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold"> <?= $rows['position_name'] ?> </span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold"> <?= $rows['organization_name'] ?> </span>
                 </td>
                 <td class="align-middle">
                   <div class="dropdown float-lg-end pe-4">

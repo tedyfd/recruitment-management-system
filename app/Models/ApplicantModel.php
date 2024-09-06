@@ -9,7 +9,7 @@ class ApplicantModel extends Model
     protected $table      = 'applicant';
     // protected $useTimestamps = true;
     protected $primaryKey = 'id';
-    protected $allowedFields = ['id','username', 'password', 'name'];
+    protected $allowedFields = ['id','username', 'password', 'name', 'job_id'];
 
     public function getUser($username, $password)
     {

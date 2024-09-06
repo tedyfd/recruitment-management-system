@@ -22,8 +22,7 @@
               </div>
               <div class="input-group input-group-outline mb-3 dark-version">
                 <select class="form-select" id="gender" name="gender">
-                  <option selected>Gender</option>
-                  <option value="">Choose</option>
+                  <option selected disabled>Gender</option>
                   <option value="man">Man</option>
                   <option value="female">Female</option>
                 </select>

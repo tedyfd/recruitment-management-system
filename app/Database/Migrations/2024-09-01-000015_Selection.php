@@ -15,7 +15,7 @@ class Selection extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'form_id' => [
+            'applicant_id' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,

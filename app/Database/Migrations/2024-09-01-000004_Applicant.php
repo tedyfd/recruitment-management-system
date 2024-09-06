@@ -27,6 +27,11 @@ class Applicant extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'job_id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('applicant');

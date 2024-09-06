@@ -7,18 +7,22 @@ use App\Models\JobCategoryModel;
 use App\Models\JobPositionModel;
 use App\Models\JobOrganizationModel;
 use App\Models\JobModel;
+use App\Models\SelectionModel;
+use App\Models\FormModel;
 
 class HR extends BaseController
 {
     public function index()
     {
         $applicantModel = new ApplicantModel();
+        $jobModel = new JobModel();
         
         $data = [
 			'title' => 'user',
             'sidebar' => 3,
             'session' => \Config\Services::session(),
-            'applicant' => $applicantModel->findAll()
+            'applicant' => $applicantModel->findAll(),
+            'job' => $jobModel->getAllJobs(),
 		];
         return view('hr/index', $data);
     }
@@ -26,7 +30,9 @@ class HR extends BaseController
     public function addApplicant()
     {
         $applicantModel = new ApplicantModel();
+        $selectionModel = new SelectionModel();
 
+        $jobId = $this->request->getVar('jobId');
         $name = $this->request->getVar('name');
         $username = $this->request->getVar('username');
         $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
@@ -35,6 +41,7 @@ class HR extends BaseController
             'name' => $name,
             'username' => $username,
             'password' => $password,
+            'job_id' => $jobId,
         ];
         if($applicantModel->Where(['username' => $username])->first()){
             $data = [
@@ -44,6 +51,12 @@ class HR extends BaseController
             return json_encode($data);
         }else{
             if($applicantModel->insert($data)){
+                $dataSelection = [
+                    'applicant_id' => $applicantModel->insertID(),
+                    'selection_status_id' => 3,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ];
+                $selectionModel->insert($dataSelection);
                 $data = [
                     'status' => true,
                     'msg' => 'Applicant added successfully!'
@@ -82,18 +95,52 @@ class HR extends BaseController
     public function applicant($id)
     {
         $applicantModel = new ApplicantModel();
+        $formModel = new FormModel();
+        $selectionModel = new SelectionModel();
         
         $data = [
 			'title' => 'user',
             'sidebar' => 3,
             'session' => \Config\Services::session(),
-            'applicant' => $applicantModel->find($id)
+            'applicant' => $applicantModel->find($id),
+            'form' => $formModel->getFormByApplicantId($id),
+            'selection' => $selectionModel->getAllSelectionByApplicantId($id),
+            'selectionRow' => $selectionModel->getRowSelectionByApplicantId($id)
 		];
         
         return view('hr/applicantDetail', $data);
     }
 
-    public function jobSetting(){
+    public function addSelection()
+    {
+        $selectionModel = new SelectionModel();
+
+        $applicantId = $this->request->getVar('applicantId');
+        $selectionStatusId = $this->request->getVar('selectionStatusId');
+        
+        $data = [
+            'applicant_id' => $applicantId,
+            'selection_status_id' => $selectionStatusId,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+    
+        if($selectionModel->insert($data)){
+            $data = [
+                'status' => true,
+                'msg' => 'New selection added successfully!'
+            ];
+        }else{
+            $data = [
+                'status' => false,
+                'msg' => 'Sorry, selection not added.'				
+            ];
+        }
+        return json_encode($data);
+        
+    }
+
+    public function jobSetting()
+    {
         $jobCategoryModel = new JobCategoryModel();
         $jobPositionModel = new JobPositionModel();
         $jobOrganizationModel = new JobOrganizationModel();
@@ -106,7 +153,7 @@ class HR extends BaseController
             'jobCategory' => $jobCategoryModel->findAll(),
             'jobPosition' => $jobPositionModel->findAll(),
             'jobOrganization' => $jobOrganizationModel->findAll(),
-            'job' => $jobModel->findAll(),
+            'job' => $jobModel->getAllJobs(),
 		];
         return view('hr/jobSetting', $data);
     }

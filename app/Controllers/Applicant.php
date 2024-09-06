@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ApplicantModel;
 use App\Models\FormModel;
+use App\Models\SelectionModel;
 
 class Applicant extends BaseController
 {
@@ -45,6 +46,7 @@ class Applicant extends BaseController
     {
         $applicantModel = new ApplicantModel();
         $formModel = new FormModel();
+        $selectionModel = new SelectionModel();
 
         $applicantId = $this->request->getVar('applicantId');
         $name = $this->request->getVar('name');
@@ -61,6 +63,12 @@ class Applicant extends BaseController
         ];
 
         if($formModel->insert($data)){
+            $dataSelection = [
+                'applicant_id' => $applicantId,
+                'selection_status_id' => 4,
+                'created_at' => date('Y-m-d H:i:s'),
+            ];
+            $selectionModel->insert($dataSelection);
             $data = [
                 'status' => true,
                 'msg' => 'Form added successfully!'

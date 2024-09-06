@@ -15,11 +15,6 @@ class Form extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'job_id' => [
-                'type'           => 'INT',
-                'constraint'     => 5,
-                'unsigned'       => true,
-            ],
             'applicant_id' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
