@@ -17,7 +17,7 @@
           <?= $applicant['name'] ?>
         </h5>
         <p class="mb-0 font-weight-normal text-sm">
-          Position
+          <?= $job['category_name'] . ' ' . $job['position_name'] ?>
         </p>
       </div>
     </div>
@@ -36,9 +36,9 @@
           </div>
           <div class="card-body p-3">
             <hr class="horizontal gray-light my-4">
-            <?php if($selectionRow['selection_status_id'] === '4'):?>
-            <button type="submit" class="btn btn-primary" onclick="addSelection(<?= $applicant['id'] ?>,5)">Accept</button>
-            <button type="submit" class="btn btn-primary" onclick="addSelection(<?= $applicant['id'] ?>,2)">Reject</button>
+            <?php if($selectionRow['selection_status_id'] === '5'):?>
+            <button type="submit" class="btn btn-primary" onclick="addSelection(<?= $applicant['id'] ?>,1)">Accept</button>
+            <button type="submit" class="btn btn-danger" onclick="addSelection(<?= $applicant['id'] ?>,2)">Reject</button>
             <?php endif; ?>
             <ul class="list-group">
               <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?= $form['name'] ?></li>
@@ -78,7 +78,7 @@
 function addSelection(applicantId, selectionStatusId) {
   
   $.ajax({
-      url: "<?= base_url('hr/add_selection') ?>",
+      url: "<?= base_url('user/add_selection') ?>",
       type: "POST",
       dataType: 'json',
       data: {

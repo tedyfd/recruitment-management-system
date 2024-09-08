@@ -15,7 +15,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">dashboard</i>
               </div>
-              <span class="nav-link-text ms-1">Dashboard</span>
+              <span class="nav-link-text ms-1">Home</span>
             </a>
           </li>
           <li class="nav-item">
@@ -40,10 +40,18 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">dashboard</i>
               </div>
-              <span class="nav-link-text ms-1">Job</span>
+              <span class="nav-link-text ms-1">Home</span>
             </a>
           </li>
         <?php elseif($session->get('user_logged_in')): ?>
+          <li class="nav-item">
+            <a class="nav-link text-white active bg-gradient-prim ary" href="<?= base_url('user') ?>">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">dashboard</i>
+              </div>
+              <span class="nav-link-text ms-1">Home</span>
+            </a>
+          </li>
         <?php endif; ?>
       </ul>
     </div>

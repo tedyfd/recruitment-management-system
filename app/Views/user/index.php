@@ -8,6 +8,7 @@
         <div class="row">
           <div class="col-lg-6 col-7">
             <h6>Applicant Accepted by HR</h6>
+            <p>You organize <strong><?= $jobOrganization['name'] ?></strong></p>
           </div>
           <div class="col-lg-6 col-5 my-auto text-end">
           </div>
@@ -28,7 +29,9 @@
               <?php foreach($applicant as $rows):?>
               <tr>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> <?= $rows['name'] ?> </span>
+                  <a href="<?= base_url("/user/applicant/$rows[id]") ?>">
+                    <span class="text-xs font-weight-bold"> <?= $rows['name'] ?> </span>
+                  </a>
                 </td>
                 <td class="align-middle text-center text-sm">
                   <span class="text-xs font-weight-bold"> <?= $rows['job_category'] ?> </span>
@@ -38,17 +41,6 @@
                 </td>
                 <td class="align-middle text-center text-sm">
                   <span class="text-xs font-weight-bold"> <?= $rows['job_organization'] ?> </span>
-                </td>
-                <td class="align-middle">
-                  <div class="dropdown float-lg-end pe-4">
-                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                      <li><button class="dropdown-item border-radius-md">Update</button></li>
-                      <li><a class="dropdown-item border-radius-md" onclick="delUser(<?= $rows['id'] ?>)">Delete</a></li>
-                    </ul>
-                  </div>
                 </td>
               </tr>
               <?php endforeach; ?>

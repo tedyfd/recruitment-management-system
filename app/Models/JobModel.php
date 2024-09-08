@@ -22,6 +22,6 @@ class JobModel extends Model
         INNER JOIN job_category ON job.job_category_id = job_category.id
         INNER JOIN job_position ON job.job_position_id = job_position.id
         INNER JOIN job_organization ON job.job_organization_id = job_organization.id
-        WHERE job.id = $id")->getResultArray();
+        WHERE job.id = $id")->getRowArray();
     }
 }

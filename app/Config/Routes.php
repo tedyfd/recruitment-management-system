@@ -40,3 +40,5 @@ $routes->get('/applicant/form', 'Applicant::form',['filter' => 'loginCheckApplic
 $routes->post('/applicant/add_form', 'Applicant::addForm',['filter' => 'loginCheckApplicant']);
 
 $routes->get('/user', 'User::index',['filter' => 'loginCheckUser']);
+$routes->get('/user/applicant/(:segment)', 'User::applicant/$1',['filter' => 'loginCheckUser']);
+$routes->post('/user/add_selection', 'User::addSelection',['filter' => 'loginCheckUser']);
