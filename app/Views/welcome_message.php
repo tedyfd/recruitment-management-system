@@ -8,5 +8,6 @@
 <body>
     <a href="hr">HR</a>
     <a href="applicant">Applicant</a>
+    <a href="user">User</a>
 </body>
 </html>

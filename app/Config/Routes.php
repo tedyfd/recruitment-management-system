@@ -10,6 +10,10 @@ $routes->post('/auth/hr/login_process', 'Auth\HRAuth::loginProcess');
 $routes->get('/auth/hr/logout', 'Auth\HRAuth::logout');
 $routes->get('/auth/applicant/login', 'Auth\ApplicantAuth::login');
 $routes->post('/auth/applicant/login_process', 'Auth\ApplicantAuth::loginProcess');
+$routes->get('/auth/applicant/logout', 'Auth\ApplicantAuth::logout');
+$routes->get('/auth/user/login', 'Auth\UserAuth::login');
+$routes->post('/auth/user/login_process', 'Auth\UserAuth::loginProcess');
+$routes->get('/auth/user/logout', 'Auth\UserAuth::logout');
 
 $routes->get('/', 'Home::index');
 $routes->get('/hr', 'HR::index',['filter' => 'loginCheckHR']);
@@ -29,6 +33,10 @@ $routes->post('/hr/del_job_position', 'HR::delJobPosition',['filter' => 'loginCh
 $routes->post('/hr/add_job_organization', 'HR::addJobOrganization',['filter' => 'loginCheckHR']);
 $routes->post('/hr/del_job_Organization', 'HR::delJobOrganization',['filter' => 'loginCheckHR']);
 
+$routes->post('/hr/add_user', 'HR::addUser',['filter' => 'loginCheckHR']);
+
 $routes->get('/applicant', 'Applicant::index',['filter' => 'loginCheckApplicant']);
 $routes->get('/applicant/form', 'Applicant::form',['filter' => 'loginCheckApplicant']);
 $routes->post('/applicant/add_form', 'Applicant::addForm',['filter' => 'loginCheckApplicant']);
+
+$routes->get('/user', 'User::index',['filter' => 'loginCheckUser']);

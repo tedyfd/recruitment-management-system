@@ -37,6 +37,7 @@ class Filters extends BaseFilters
         'performance'   => PerformanceMetrics::class,
         'loginCheckHR'    => \App\Filters\HRFilter::class,
         'loginCheckApplicant'    => \App\Filters\ApplicantFilter::class,
+        'loginCheckUser'    => \App\Filters\UserFilter::class,
 
     ];
 

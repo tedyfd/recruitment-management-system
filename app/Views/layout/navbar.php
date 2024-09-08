@@ -26,16 +26,24 @@
               </a>
               <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" >
                 <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="<?= base_url('auth/hr/logout') ?>">
+                  <?php 
+                  $logoutLink = '';
+                  if($session->get('hr_logged_in')){
+                    $logoutLink = base_url('auth/hr/logout');
+                  }else if($session->get('applicant_logged_in')){
+                    $logoutLink = base_url('auth/applicant/logout');
+                  }else if($session->get('user_logged_in')){
+                    $logoutLink = base_url('auth/user/logout');
+                  }
+                  ?>
+                  <a class="dropdown-item border-radius-md" href="<?= $logoutLink ?>">
                     <h6 class="text-sm font-weight-normal mb-1">
                         <span class="d-sm-inline d-none">Sign out</span>
                     </h6>
                   </a>
                 </li>
               </ul>
-            </li>
-           
-            
+            </li> 
           </ul>
         </div>
       </div>

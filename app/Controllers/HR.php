@@ -9,20 +9,25 @@ use App\Models\JobOrganizationModel;
 use App\Models\JobModel;
 use App\Models\SelectionModel;
 use App\Models\FormModel;
+use App\Models\UserModel;
 
 class HR extends BaseController
 {
     public function index()
     {
         $applicantModel = new ApplicantModel();
+        $userModel = new UserModel();
         $jobModel = new JobModel();
+        $jobOrganizationModel = new JobOrganizationModel();
         
         $data = [
 			'title' => 'user',
             'sidebar' => 3,
             'session' => \Config\Services::session(),
             'applicant' => $applicantModel->findAll(),
+            'user' => $userModel->findAll(),
             'job' => $jobModel->getAllJobs(),
+            'jobOrganization' => $jobModel->findAll(),
 		];
         return view('hr/index', $data);
     }
@@ -294,5 +299,42 @@ class HR extends BaseController
         }
     }
 
+    public function addUser()
+    {
+        $userModel = new UserModel();
+        $selectionModel = new SelectionModel();
+
+        $jobOrganizationId = $this->request->getVar('jobOrganizationId');
+        $name = $this->request->getVar('name');
+        $username = $this->request->getVar('username');
+        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+        
+        $data = [
+            'name' => $name,
+            'username' => $username,
+            'password' => $password,
+            'job_organization_id' => $jobOrganizationId,
+        ];
+        if($userModel->Where(['username' => $username])->first()){
+            $data = [
+                'status' => true,
+                'msg' => 'Duplicate username!'
+            ];
+            return json_encode($data);
+        }else{
+            if($userModel->insert($data)){
+                $data = [
+                    'status' => true,
+                    'msg' => 'User added successfully!'
+                ];
+            }else{
+                $data = [
+                    'status' => false,
+                    'msg' => 'Sorry, User not added.'				
+                ];
+            }
+            return json_encode($data);
+        }
+    }
 
 }

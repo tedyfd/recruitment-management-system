@@ -12,6 +12,7 @@ class Applicant extends BaseController
     {
         $applicantModel = new ApplicantModel();
         $formModel = new FormModel();
+        $selectionModel = new SelectionModel();
 
         $applicant = $applicantModel->where(['username' => session('username')])->first();
         $form = $formModel->where(['applicant_id' => $applicant['id']])->first();
@@ -21,6 +22,7 @@ class Applicant extends BaseController
             'session' => \Config\Services::session(),
             'applicant' => $applicant,
             'form' =>  $form,
+            'selection' => $selectionModel->getAllSelectionByApplicantId($applicant['id']),
 		];
         return view('applicant/index', $data);
     }
