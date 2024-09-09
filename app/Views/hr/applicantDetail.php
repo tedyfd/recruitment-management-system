@@ -17,7 +17,7 @@
           <?= $applicant['name'] ?>
         </h5>
         <p class="mb-0 font-weight-normal text-sm">
-          Position
+          <?= $job['category_name'] . ' ' . $job['position_name'] . ' - ' . $job['organization_name'] ?>
         </p>
       </div>
     </div>
@@ -31,7 +31,6 @@
               <div class="col-md-8 d-flex align-items-center">
                 <h6 class="mb-0">Form</h6>
               </div>
-          
             </div>
           </div>
           <div class="card-body p-3">
@@ -59,7 +58,7 @@
               <?php foreach($selection as $rows) : ?>
                 <div class="timeline-block mb-3">
                   <span class="timeline-step">
-                    <i class="material-icons text-success text-gradient">notifications</i>
+                    <i class="material-icons <?= $rows['color'] ?> text-gradient"><?= $rows['icon'] ?></i>
                   </span>
                   <div class="timeline-content">
                     <h6 class="text-dark text-sm font-weight-bold mb-0"><?= $rows['status'] ?></h6>

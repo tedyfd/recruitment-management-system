@@ -60,7 +60,7 @@ class Applicant extends BaseController
             'applicant_id' => $applicantId,
             'name' => $name,
             'gender' => $gender,
-            'phone' => $phone,
+            'phone_number' => $phone,
             'address' => $address,
         ];
 

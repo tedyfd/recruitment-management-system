@@ -17,10 +17,10 @@
             <div class="col-12 col-md-8 ">
               <input type="hidden" class="form-control" id="applicantId" name="applicantId" value='<?= $applicant['id'] ?>'>
               <div class="input-group input-group-outline mb-3">
-                <label class="form-label">Name</label>
+                <label class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="name" name="name">
               </div>
-              <div class="input-group input-group-outline mb-3 dark-version">
+              <div class="input-group input-group-outline mb-3">
                 <select class="form-select" id="gender" name="gender">
                   <option selected disabled>Gender</option>
                   <option value="man">Man</option>

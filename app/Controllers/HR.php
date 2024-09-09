@@ -27,7 +27,7 @@ class HR extends BaseController
             'applicant' => $applicantModel->findAll(),
             'user' => $userModel->findAll(),
             'job' => $jobModel->getAllJobs(),
-            'jobOrganization' => $jobModel->findAll(),
+            'jobOrganization' => $jobOrganizationModel->findAll(),
 		];
         return view('hr/index', $data);
     }
@@ -102,15 +102,20 @@ class HR extends BaseController
         $applicantModel = new ApplicantModel();
         $formModel = new FormModel();
         $selectionModel = new SelectionModel();
+        $jobModel = new JobModel();
+
+        $applicant = $applicantModel->find($id);
+        $job = $jobModel->getAllJobById($applicant['job_id']);
         
         $data = [
 			'title' => 'user',
             'sidebar' => 3,
             'session' => \Config\Services::session(),
-            'applicant' => $applicantModel->find($id),
+            'applicant' => $applicant,
             'form' => $formModel->getFormByApplicantId($id),
             'selection' => $selectionModel->getAllSelectionByApplicantId($id),
-            'selectionRow' => $selectionModel->getRowSelectionByApplicantId($id)
+            'selectionRow' => $selectionModel->getRowSelectionByApplicantId($id),
+            'job' => $job,
 		];
         
         return view('hr/applicantDetail', $data);

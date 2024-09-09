@@ -23,6 +23,14 @@ class SelectionStatus extends Migration
                 'type' => 'TEXT',
                 'null' => true,
             ],
+            'icon' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'color' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('selection_status');

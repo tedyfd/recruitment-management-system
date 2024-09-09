@@ -214,7 +214,7 @@
 
 <div class="modal" id="modalAddJob" tabindex="-1" tabindex="-1" aria-labelledby="modalAddJobLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-dark">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add Job</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -224,7 +224,7 @@
           <label class="form-label">name</label>
           <input type="text" class="form-control" id="jobName" name="jobName">
         </div>
-        <div class="input-group input-group-outline mb-3 dark-version">
+        <div class="input-group input-group-outline mb-3">
           <select class="form-select" id="jobCategory" name="jobCategory">
             <option selected>Job Category</option>
             <?php foreach($jobCategory as $rows): ?>
@@ -232,7 +232,7 @@
             <?php endforeach; ?>
           </select>
         </div>
-        <div class="input-group input-group-outline mb-3 dark-version">
+        <div class="input-group input-group-outline mb-3">
           <select class="form-select" id="jobPosition" name="jobPosition">
             <option selected>Job Position</option>
             <?php foreach($jobPosition as $rows): ?>
@@ -240,7 +240,7 @@
             <?php endforeach; ?>
           </select>
         </div>
-        <div class="input-group input-group-outline mb-3 dark-version">
+        <div class="input-group input-group-outline mb-3">
           <select class="form-select" id="jobOrganization" name="jobOrganization">
             <option selected>Job Organization</option>
             <?php foreach($jobOrganization as $rows): ?>
@@ -257,7 +257,7 @@
 </div>
 <div class="modal" id="modalAddJobCategory" tabindex="-1" tabindex="-1" aria-labelledby="modalAddJobCategoryLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-dark">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Job Category Add</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -280,7 +280,7 @@
 </div>
 <div class="modal" id="modalAddJobPosition" tabindex="-1" tabindex="-1" aria-labelledby="modalAddJobPositionLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-dark">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Job Position Add</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -303,7 +303,7 @@
 </div>
 <div class="modal" id="modalAddJobOrganization" tabindex="-1" tabindex="-1" aria-labelledby="modalAddJobOrganizationLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-dark">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Job Organization Add</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

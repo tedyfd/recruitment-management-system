@@ -108,13 +108,13 @@
 
 <div class="modal" id="modalAddApplicant" tabindex="-1" tabindex="-1" aria-labelledby="modalAddApplicantLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-dark">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add Applicant</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="input-group input-group-outline mb-3 dark-version">
+        <div class="input-group input-group-outline mb-3">
           <select class="form-select" id="job" name="job">
             <option selected>Job</option>
             <?php foreach($job as $rows): ?>
@@ -144,13 +144,13 @@
 
 <div class="modal" id="modalAddUser" tabindex="-1" tabindex="-1" aria-labelledby="modalAddUserLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content bg-dark">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add User</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="input-group input-group-outline mb-3 dark-version">
+        <div class="input-group input-group-outline mb-3">
           <select class="form-select" id="userJobOrganization" name="userJobOrganization">
             <option selected>Job Organization</option>
             <?php foreach($jobOrganization as $rows): ?>

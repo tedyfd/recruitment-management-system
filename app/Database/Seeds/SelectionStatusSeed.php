@@ -11,27 +11,39 @@ class SelectionStatusSeed extends Seeder
         $data = [
             [
                 'id' => 1,
-                'status'  =>  'accept',
+                'status'  =>  'Accept',
+                'icon'  =>  'check_box',
+                'color'  =>  'text-success',
             ],
             [
                 'id' => 2,
-                'status'  =>  'cancel',
+                'status'  =>  'Reject',
+                'icon'  =>  'disabled_by_default',
+                'color'  =>  'text-danger',
             ],
             [
                 'id' => 3,
-                'status'  =>  'form',
+                'status'  =>  'Form Input',
+                'icon'  =>  'description',
+                'color'  =>  'text-info',
             ],
             [
                 'id' => 4,
-                'status'  =>  'form review',
+                'status'  =>  'Form Review',
+                'icon'  =>  'assignment',
+                'color'  =>  'text-info',
             ],
             [
                 'id' => 5,
-                'status'  =>  'hr review',
+                'status'  =>  'HR Review Accepted',
+                'icon'  =>  'checklist_rtl',
+                'color'  =>  'text-info',
             ],
             [
                 'id' => 6,
-                'status'  =>  'user review',
+                'status'  =>  'User Review',
+                'icon'  =>  'assignment',
+                'color'  =>  'text-info',
             ],
         ];
 
