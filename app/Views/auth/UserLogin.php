@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <title>
-    Login User
+    User Login
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -22,7 +22,7 @@
 
 <body class="bg-gray-200">
   <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-100">
+    <div class="page-header align-items-start min-vh-100"  style="background-image: url('https://images.unsplash.com/photo-1686771416282-3888ddaf249b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container my-auto">
         <div class="row">
